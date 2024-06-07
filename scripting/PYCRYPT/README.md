@@ -23,7 +23,7 @@ python encrypt_decrypt.py
 <p>To decrypt files, run the script and choose the option to decrypt (D). You will be prompted to enter the filename of the encrypted file you want to decrypt and the passphrase used for encryption. The decrypted file will be saved in the same directory without the "(encrypted)" prefix.</p>
 
 <pre>
-python encrypt_decrypt.py
+python crypt.py
 </pre>
 
 <h2>Dependencies</h2>
@@ -36,7 +36,7 @@ python encrypt_decrypt.py
 
 <h2>Contributing</h2>
 
-<p>Contributions are welcome! If you encounter any issues or have suggestions for improvements, please open an issue or submit a pull request on <a href="https://github.com/your_username/your_repository">GitHub</a>.</p>
+<p>Contributions are welcome! If you encounter any issues or have suggestions for improvements, please open an issue or submit a pull request on <a href="https://github.com/IlyVoid/Diabolical-scripting-piscine-">GitHub</a>.</p>
 
 <h2>License</h2>
 
