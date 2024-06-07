@@ -1,8 +1,8 @@
-# Diabolical Scripts Repository
+# ScriptFactory Repository
 
 ## Overview
 
-Welcome to the Diabolical Scripts Repository! Here, you'll find a collection of nefariously crafted scripts designed to make your computing life a bit more diabolical. Dive in if you dare!
+Welcome to the ScriptFactory Repository! Here, you'll find a collection of nefariously crafted scripts designed to make your computing life a bit more diabolical. Dive in if you dare!
 
 ## Available Scripts
 
