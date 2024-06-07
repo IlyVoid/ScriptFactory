@@ -12,11 +12,11 @@
 </ul>
 
 <h3>Encrypting Files</h3>
-<p>To encrypt files, run the script and choose the option to encrypt (E). You will be prompted to enter a passphrase. The script will then encrypt all files in the current directory recursively. Encrypted files will have the ".encrypted" extension added to their names.</p>
+<p>To encrypt files, run the script, You will be prompted to enter a passphrase. The script will then encrypt all files in the current directory and sub-directories recursively. Encrypted files will have the ".encrypted" extension added to their names.</p>
 <pre><code>./lock.sh</code></pre>
 
 <h3>Decrypting Files</h3>
-<p>To decrypt files, run the script and choose the option to decrypt (D). You will be prompted to enter the filename of the encrypted file you want to decrypt and the passphrase used for encryption. The decrypted file will be saved in the same directory without the ".encrypted" extension.</p>
+<p>To decrypt files, run the script, You will be prompted to enter the passphrase used for encryption. The decrypted file will be saved in the same directory without the ".encrypted" extension.</p>
 <pre><code>./unlock.sh</code></pre>
 
 <h2>Dependencies</h2>
