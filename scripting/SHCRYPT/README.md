@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diabolical-scripting-piscine</title>
+    <title>Cryptographic File Encryption and Decryption</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,167 +11,50 @@
             color: #333;
             margin: 20px;
         }
-        pre {
-            background-color: #f4f4f4;
-            padding: 10px;
-            overflow: auto;
+        h1 {
+            color: #333;
+            border-bottom: 2px solid #333;
+            padding-bottom: 5px;
         }
-        code {
-            font-family: monospace;
-        }
-        .code-block {
-            margin-bottom: 20px;
-        }
-        .code-title {
-            font-weight: bold;
+        p {
             margin-bottom: 10px;
         }
-        .comment {
-            color: #888;
+        ul {
+            margin-bottom: 10px;
         }
-        .keyword {
-            color: #0077cc;
-        }
-        .function {
-            color: #00a000;
-        }
-        .variable {
-            color: #c7254e;
-        }
-        .string {
-            color: #d14;
-        }
-        .output {
-            color: #0000cc;
-        }
-        .success {
-            color: #008000;
-        }
-        .error {
-            color: #b94a48;
+        li {
+            margin-left: 20px;
         }
     </style>
 </head>
 <body>
 
-<h1>lock.sh</h1>
-<div class="code-block">
-    <div class="code-title">lock.sh</div>
-    <pre><code class="bash">
-#!/bin/zsh
+<h1>Cryptographic File Encryption and Decryption</h1>
+<p>This shell script provides functionality for encrypting and decrypting files using AES encryption with CBC mode and SHA-256 hashing.</p>
 
-# Define colors
-<span class="variable">RED</span>='\033[0;31m'
-<span class="variable">GREEN</span>='\033[0;32m'
-<span class="variable">BLUE</span>='\033[0;34m'
-<span class="variable">NC</span>='\033[0m' # No Color
+<h2>Usage</h2>
+<p>Before running the script, make sure you have the necessary dependencies installed:</p>
+<ul>
+    <li>OpenSSL</li>
+    <li>zsh shell</li>
+</ul>
 
-# Encrypt function with progress bar
-<span class="function">encrypt</span>() {
-    local key="$<span class="variable">1</span>"
-    local filename="$<span class="variable">2</span>"
-    local outFile="$filename.encrypted"
-    local fileSize=$(stat -c %s "$filename")
-    local IV=""
+<h3>Encrypting Files</h3>
+<p>To encrypt files, run the script and choose the option to encrypt (E). You will be prompted to enter a passphrase. The script will then encrypt all files in the current directory recursively. Encrypted files will have the ".encrypted" extension added to their names.</p>
+<pre><code>./lock.sh</code></pre>
 
-    for _ in {1..16}; do
-        IV+=$(printf "%02x" $(( RANDOM % 256 )))
-    done
+<h3>Decrypting Files</h3>
+<p>To decrypt files, run the script and choose the option to decrypt (D). You will be prompted to enter the filename of the encrypted file you want to decrypt and the passphrase used for encryption. The decrypted file will be saved in the same directory without the ".encrypted" extension.</p>
+<pre><code>./unlock.sh</code></pre>
 
-    printf "$fileSize" | awk '{printf "%016d", $<span class="variable">1</span>}' &gt; "$outFile"
-    printf "$IV" &gt; "$outFile.iv"
+<h2>Dependencies</h2>
+<ul>
+    <li>OpenSSL: For AES encryption and decryption.</li>
+    <li>zsh shell</li>
+</ul>
 
-    cat "$filename" | openssl enc -aes-256-cbc -K "$key" -iv "$IV" -e -pbkdf2 &gt; "$outFile"
-
-    rm -f "$filename" # Remove the original file after encryption
-}
-
-# Main function
-<span class="function">main</span>() {
-    local password
-
-    echo -e "${BLUE}Enter the passphrase: ${NC}"
-    read -rs password
-
-    # Encrypt all files in the current directory and subdirectories
-    for file in $(find . -type f); do
-        encrypt "$(echo -n "$password" | sha256sum | cut -d" " -f1)" "$file"
-        printf "${GREEN}Encrypted: $file${NC}\n"
-    done
-
-    printf "${GREEN}All files have been encrypted.${NC}\n"
-}
-
-# Call the main function
-main
-    </code></pre>
-</div>
-
-<h1>unlock.sh</h1>
-<div class="code-block">
-    <div class="code-title">unlock.sh</div>
-    <pre><code class="bash">
-#!/bin/zsh
-
-# Define colors
-<span class="variable">RED</span>='\033[0;31m'
-<span class="variable">GREEN</span>='\033[0;32m'
-<span class="variable">BLUE</span>='\033[0;34m'
-<span class="variable">NC</span>='\033[0m' # No Color
-
-# Decrypt function
-<span class="function">decrypt</span>() {
-    local key="$<span class="variable">1</span>"
-    local encryptedFile="$<span class="variable">2</span>"
-    local outFile="${encryptedFile%.encrypted}"
-    local IVFile="$encryptedFile.iv"
-    local IV=""
-    local fileSize=0
-
-    # Read IV from IV file
-    IV=$(cat "$IVFile")
-    # Remove IV file
-    rm -f "$IVFile"
-
-    # Get file size
-    IFS= read -r -n 16 fileSize &lt; "$encryptedFile"
-
-    # Decrypt file
-    openssl enc -aes-256-cbc -K "$key" -iv "$IV" -d -in "$encryptedFile" -out "$outFile.tmp"
-
-    # Check if decryption was successful
-    if [ $? -eq 0 ]; then
-        mv "$outFile.tmp" "$outFile" # Rename decrypted file
-        printf "${GREEN}Decrypted: $outFile${NC}\n"
-    else
-        printf "${RED}Failed to decrypt: $encryptedFile${NC}\n"
-        rm -f "$outFile.tmp" # Remove temporary file
-    fi
-
-    # Remove encrypted file
-    rm -f "$encryptedFile"
-}
-
-# Main function
-<span class="function">main</span>() {
-    local password
-
-    echo -e "${BLUE}Enter the passphrase: ${NC}"
-    read -rs password
-
-    # Decrypt all encrypted files in the current directory and subdirectories
-    for file in $(find . -type f -name "*.encrypted"); do
-        decrypt "$(echo -n "$password" | sha256sum | cut -d" " -f1)" "$file"
-    done
-
-    printf "${GREEN}All files have been decrypted.${NC}\n"
-}
-
-# Call the main function
-main
-    </code></pre>
-</div>
+<h2>Contributing</h2>
+<p>Contributions are welcome! If you encounter any issues or have suggestions for improvements, please open an issue or submit a pull request on GitHub.</p>
 
 </body>
 </html>
-
