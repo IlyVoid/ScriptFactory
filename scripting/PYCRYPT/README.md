@@ -36,7 +36,7 @@ python crypt.py
 
 <h2>Contributing</h2>
 
-<p>Contributions are welcome! If you encounter any issues or have suggestions for improvements, please open an issue or submit a pull request on <a href="https://github.com/IlyVoid/Diabolical-scripting-piscine-">GitHub</a>.</p>
+<p>Contributions are welcome! If you encounter any issues or have suggestions for improvements, please open an issue or submit a pull request on <a href="https://github.com/IlyVoid/ScriptFactory">GitHub</a>.</p>
 
 <h2>License</h2>
 
