@@ -6,10 +6,10 @@ Welcome to the ScriptFactory Repository! Here, you'll find a collection of nefar
 
 ## Available Scripts
 
-| Script Name                | Description                                                |
-|----------------------------|------------------------------------------------------------|
-| 🔒 encrypt_decrypt.py      | Python script for encrypting and decrypting data securely. |
-| 💀 encrypt_decrypt.sh      | Shell script offering encryption and decryption functionalities. |
+| Script Name                | Description                                                       |
+|----------------------------|-------------------------------------------------------------------|
+| 🔒 crypt.py                | Python script for encrypting and decrypting data securely.         |
+| 💀 lock.sh - unlock.sh     | Shell scripts offering encryption and decryption functionalities.  |
 
 ## Usage
 
