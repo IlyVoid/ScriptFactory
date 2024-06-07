@@ -26,7 +26,7 @@
 </ul>
 
 <h2>Contributing</h2>
-<p>Contributions are welcome! If you encounter any issues or have suggestions for improvements, please open an issue or submit a pull request on GitHub.</p>
+<p>Contributions are welcome! If you encounter any issues or have suggestions for improvements, please open an issue or submit a pull request on <a href="https://github.com/IlyVoid/Diabolical-scripting-piscine-">GitHub</a>.</p>
 
 </body>
 </html>
