@@ -1,15 +1,15 @@
-# Diabolical Scripts Repository
+# ScriptFactory Repository
 
 ## Overview
 
-Welcome to the Diabolical Scripts Repository! Here, you'll find a collection of nefariously crafted scripts designed to make your computing life a bit more diabolical. Dive in if you dare!
+Welcome to the ScriptFactory Repository! Here, you'll find a collection of nefariously crafted scripts designed to make your computing life a bit more diabolical. Dive in if you dare!
 
 ## Available Scripts
 
-| Script Name                | Description                                                |
-|----------------------------|------------------------------------------------------------|
-| 🔒 encrypt_decrypt.py      | Python script for encrypting and decrypting data securely. |
-| 💀 encrypt_decrypt.sh      | Shell script offering encryption and decryption functionalities. |
+| Script Name                | Description                                                       |
+|----------------------------|-------------------------------------------------------------------|
+| 🔒 crypt.py                | Python script for encrypting and decrypting data securely.         |
+| 💀 lock.sh - unlock.sh     | Shell scripts offering encryption and decryption functionalities.  |
 
 ## Usage
 
