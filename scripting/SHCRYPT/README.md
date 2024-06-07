@@ -28,5 +28,9 @@
 <h2>Contributing</h2>
 <p>Contributions are welcome! If you encounter any issues or have suggestions for improvements, please open an issue or submit a pull request on <a href="https://github.com/IlyVoid/Diabolical-scripting-piscine-">GitHub</a>.</p>
 
+<h2>License</h2>
+
+<p>This project is licensed under the MIT License. See the <a href="LICENSE">LICENSE</a> file for details.</p>
+
 </body>
 </html>
