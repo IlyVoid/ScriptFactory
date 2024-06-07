@@ -1,35 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cryptographic File Encryption and Decryption with SHELL</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            margin: 20px;
-        }
-        h1 {
-            color: #333;
-            border-bottom: 2px solid #333;
-            padding-bottom: 5px;
-        }
-        p {
-            margin-bottom: 10px;
-        }
-        ul {
-            margin-bottom: 10px;
-        }
-        li {
-            margin-left: 20px;
-        }
-    </style>
-</head>
-<body>
 
-<h1>Cryptographic File Encryption and Decryption</h1>
+<h1>Cryptographic File Encryption and Decryption with SHELL</h1>
 <p>This shell script provides functionality for encrypting and decrypting files using AES encryption with CBC mode and SHA-256 hashing.</p>
 
 <h2>Usage</h2>
