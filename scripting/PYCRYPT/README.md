@@ -15,7 +15,7 @@ pip install pycryptodome termcolor tqdm
 <p>To encrypt files, run the script and choose the option to encrypt (E). You will be prompted to enter a passphrase. The script will then encrypt all files in the current directory recursively. Encrypted files will have the prefix "(encrypted)" added to their names.</p>
 
 <pre>
-python encrypt_decrypt.py
+python crypt.py
 </pre>
 
 <h3>Decrypting Files</h3>
