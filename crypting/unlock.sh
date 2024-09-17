@@ -32,7 +32,7 @@ decrypt() {
         printf "${GREEN}Decrypted: $outFile${NC}\n"
     else
         printf "${RED}Failed to decrypt: $encryptedFile${NC}\n"
-        rm -f "$outFile.tmp" # Remove temporary file
+		rm -rf "$outFile.tmp"
     fi
 
     # Remove encrypted file
@@ -50,8 +50,6 @@ main() {
     for file in $(find . -type f -name "*.encrypted"); do
         decrypt "$(echo -n "$password" | sha256sum | cut -d" " -f1)" "$file"
     done
-
-    printf "${GREEN}All files have been decrypted.${NC}\n"
 }
 
 # Call the main function

