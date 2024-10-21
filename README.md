@@ -8,9 +8,9 @@ Each tool has their own folder just navigate to it and read the readme.md connec
 ## Available Scripts
 
 | Script Name                | Description                                                       |
-|----------------------------|-------------------------------------------------------------------|
-| 🔒 lock.sh - unlock.sh     | Shell scripts offering encryption and decryption functionalities.  |
-| 🎭 mimic.py                | Python script to mimic a device on  anetwork by MAC address        |
+|----------------------------|-------------------------------------------------------------------------------------|
+| 🔒 lock.sh - unlock.sh     | Shell scripts offering encryption and decryption functionalities.                   |
+| 🎭 mimic.py                | Python script to mimic a device ona+ a network by MAC address. (not finished)       |
 
 ## Usage
 
