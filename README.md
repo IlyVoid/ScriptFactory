@@ -2,7 +2,7 @@
 
 ## Overview
 
-Welcome to the ScriptFactory Repository! Here, you'll find a collection of nefariously crafted scripts designed to make your computing life a bit more diabolical. Dive in if you dare!
+Encryption tool.
 
 ## Available Scripts
 
@@ -12,7 +12,7 @@ Welcome to the ScriptFactory Repository! Here, you'll find a collection of nefar
 
 ## Usage
 
-Each script is equipped with detailed instructions embedded within the file. Simply navigate to the script of your choice and unleash its diabolical powers upon your system.
+Each script is equipped with detailed instructions embedded within the file. Simply navigate to the script of your choice.
 
 ## License
 
