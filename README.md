@@ -2,13 +2,15 @@
 
 ## Overview
 
-Encryption tool.
+In this repo you'll find find script for pentesting and other things, the scripts are written by me.
+Each tool has their own folder just navigate to it and read the readme.md connected with it.
 
 ## Available Scripts
 
 | Script Name                | Description                                                       |
 |----------------------------|-------------------------------------------------------------------|
 | 🔒 lock.sh - unlock.sh     | Shell scripts offering encryption and decryption functionalities.  |
+| 🎭 mimic.py                | Python script to mimic a device on  anetwork by MAC address        |
 
 ## Usage
 
