@@ -8,7 +8,7 @@ Encryption tool.
 
 | Script Name                | Description                                                       |
 |----------------------------|-------------------------------------------------------------------|
-| 💀 lock.sh - unlock.sh     | Shell scripts offering encryption and decryption functionalities.  |
+| 🔒 lock.sh - unlock.sh     | Shell scripts offering encryption and decryption functionalities.  |
 
 ## Usage
 
