@@ -37,7 +37,7 @@ When you run the script, you will be prompted to select a network interface, spe
 ## Example
 
 ```bash
-sudo python3 mac_mimic.py
+sudo python3 mimic.py
 ```
 
 - Select your network interface (e.g., `eth0`).
