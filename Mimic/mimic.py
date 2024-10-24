@@ -38,18 +38,23 @@ def get_mac(interface):
     return None
 
 def change_mac(interface, new_mac):
-    """Change the MAC address of the specified interface."""
+    """Change the MAC address of the specified interface and handle network reconnection."""
     global original_mac
     try:
-        # Save original MAC if it's the first change
         if not original_mac:
             original_mac = get_mac(interface)
-        
+
         log_event(f"[yellow]Changing MAC address of {interface} to {new_mac}...[/yellow]")
         subprocess.run(["ip", "link", "set", interface, "down"], check=True)
         subprocess.run(["ip", "link", "set", interface, "address", new_mac], check=True)
         subprocess.run(["ip", "link", "set", interface, "up"], check=True)
+        
         log_event("[green]MAC address changed successfully![/green]")
+        
+        # Renew DHCP and announce new MAC with gratuitous ARP
+        renew_dhcp(interface)
+        send_gratuitous_arp(interface)
+
     except subprocess.CalledProcessError:
         log_event("[red]Failed to change MAC address![/red]", level="error")
 
@@ -164,6 +169,28 @@ def handle_sigint(signal_received, frame):
     log_event("[yellow]SIGINT received. Reverting MAC address and exiting...[/yellow]")
     revert_mac(interface)
     exit(0)
+
+def renew_dchp(interface):
+    """Renew DHCP lease after changing MAC address."""
+    log_event(f"[yellow]Renewing DHCP lease for {interface}...[/yellow]")
+    try:
+        subprocess.run(["dhclient", "-r", interface], check=True)  # Release current DHCP lease
+        subprocess.run(["dhclient", interface], check=True)  # Request new DHCP lease
+        log_event(f"[green]DHCP lease renewed successfully for {interface}![/green]")
+    except subprocess.CalledProcessError:
+        log_event(f"[red]Failed to renew DHCP lease on {interface}.[/red]", level="error")
+
+def send_gratuitous_arp(interface):
+    """Send gratuitous ARP to announce the new MAC address."""
+    try:
+        mac_addr = get_mac(interface)
+        ip_addr = netifaces.ifaddresses(interface)[netifaces.AF_INET][0]['addr']
+        log_event(f"[yellow]Sending gratuitous ARP for IP {ip_addr} with MAC {mac_addr}...[/yellow]")
+        packet = Ether(dst="ff:ff:ff:ff:ff:ff") / ARP(op=2, psrc=ip_addr, hwsrc=mac_addr, pdst=ip_addr, hwdst="ff:ff:ff:ff:ff:ff")
+        srp(packet, timeout=1, verbose=0)
+        log_event(f"[green]Gratuitous ARP sent successfully![/green]")
+    except KeyError:
+        log_event(f"[red]Failed to obtain IP address for interface {interface}.[/red]", level="error")
 
 def main():
     clear_terminal()
